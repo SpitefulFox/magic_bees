@@ -58,7 +58,7 @@ function define_bees()
     id = "fair",
     title = "Fair",
     latin = "Apis Formosus",
-    hint = "Old stories say Apis Communia that tarry too long in circles of toadstools will have their offspring stolen and replaced by the Fair Bees.",
+    hint = "Old stories say Apis Communia that tarry too long in a circle of toadstools will have their offspring stolen and replaced by the Fair Bees.",
     desc = "A bee long thought to be a tale to scare small children, the Fair Bee gathers under mushrooms and throws little tea parties.",
     lifespan = {"Short", "Normal", "Long" },
     productivity = {"Slow", "Normal"},
@@ -128,37 +128,37 @@ function define_bees()
     "'I don't know who keeps refilling my apicola keg, but I'm not going to argue.' said one local sea captain."
   )
   
-  elden_bee = {
-    id = "elden",
-    title = "Elden",
-    latin = "Apis Aureus",
-    hint = "Bonking this bee over the head hard enough should probably do the trick.",
-    desc = "An ancient bee that really loves trees and gets angry when they catch on fire.",
-    lifespan = {"Eternal" },
-    productivity = {"Slow"},
-    fertility = {"Infertile"},
-    stability = {"Pure"},
-    behaviour = {"Nocturnal"},
-    climate = {"Temperate"},
-    rainlover = false,
-    snowlover = false,
-    grumpy = true,
-    produce = "magic_bees_rune_arc",
-    recipes = {},
-    calming = { "flower5", "flower12" },
-    chance = 100,
-    bid = "me",
-    requirement = ""
-  }
+  -- elden_bee = {
+    -- id = "elden",
+    -- title = "Elden",
+    -- latin = "Apis Aureus",
+    -- hint = "Bonking this bee over the head hard enough should probably do the trick.",
+    -- desc = "An ancient bee that really loves trees and gets angry when they catch on fire.",
+    -- lifespan = {"Eternal" },
+    -- productivity = {"Slow"},
+    -- fertility = {"Infertile"},
+    -- stability = {"Pure"},
+    -- behaviour = {"Nocturnal"},
+    -- climate = {"Temperate"},
+    -- rainlover = false,
+    -- snowlover = false,
+    -- grumpy = true,
+    -- produce = "magic_bees_rune_arc",
+    -- recipes = {},
+    -- calming = { "flower5", "flower12" },
+    -- chance = 100,
+    -- bid = "me",
+    -- requirement = ""
+  -- }
   
-  api_define_bee(elden_bee, 
-    "sprites/elden_bee_item.png", "sprites/elden_bee_shiny.png", 
-    "sprites/elden_bee_hd.png",
-    {r=229, g=221, b=0},
-    "sprites/elden_bee_mag.png",
-    "The Elden bee's population numbers are no longer tarnished thanks to the graceful apiarist, " .. api_get_property(api_get_player_instance(), "name") .. "!",
-    "'I bet they summoned help.' - Beenjamin."
-  )
+  -- api_define_bee(elden_bee, 
+    -- "sprites/elden_bee_item.png", "sprites/elden_bee_shiny.png", 
+    -- "sprites/elden_bee_hd.png",
+    -- {r=229, g=221, b=0},
+    -- "sprites/elden_bee_mag.png",
+    -- "The Elden bee's population numbers are no longer tarnished thanks to the graceful apiarist, " .. api_get_property(api_get_player_instance(), "name") .. "!",
+    -- "'I bet they summoned help.' - Beenjamin."
+  -- )
 end
 
 
@@ -187,7 +187,7 @@ function define_npc()
     tooltip = "BEEHOLD!",
     shop = true,
     walking = true,
-    stock = {"magic_bees_fairy_dust", "magic_bees_toadstool", "log", "log", "log", "log", "log", "log", "log", "log"}, -- max 10
+    stock = {"magic_bees_magic_circle", "magic_bees_fairy_dust", "magic_bees_toadstool", "magic_bees_magical_wax", "log", "log", "log", "log", "log", "log"}, -- max 10
     specials = {"magic_bees_fairy_dust", "unstabledust", "spice4"}, -- must be 3
     dialogue = {
       "Hark, beekeeper! I wish ye good fortune in your noble quest!"

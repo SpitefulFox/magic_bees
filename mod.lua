@@ -21,6 +21,7 @@ function init()
 
   define_items()
   define_bees()
+  define_rituals()
   --define_book()
   define_npc()
   return "Success"
@@ -62,7 +63,7 @@ end
 
 function click(button, click_type)
   --api_log("click", "clickity clackity!")
-  if click_type == "PRESSED" then
+  if click_type == "PRESSED" and button == "LEFT" then
     local highlighted_int = api_get_highlighted("obj")
     if highlighted_int ~= nil then
       local highlighted_obj = api_get_inst(highlighted_int)
@@ -70,7 +71,7 @@ function click(button, click_type)
         api_create_item("magic_bees_toadstool", 1, highlighted_obj["x"], highlighted_obj["y"])
         api_destroy_inst(highlighted_obj["id"])
       end
-      api_log("ping", "X " .. highlighted_obj["x"] .. " Y " .. highlighted_obj["y"])
+      --api_log("ping", "X " .. highlighted_obj["x"] .. " Y " .. highlighted_obj["y"])
       --if highlighted_obj["oid"] == "hive3" then
         -- api_log("hive", "Found one. " .. highlighted_obj["menu_id"])-- .. tostring(#highlighted_obj["slots"]) .. " slots")
         -- local slots = api_get_slots(highlighted_obj["menu_id"])
@@ -85,6 +86,24 @@ function click(button, click_type)
           --end
         --end
       --end
+    end
+  end
+  if click_type == "RELEASED" and button == "RIGHT" then
+    local highlighted_int = api_get_highlighted("obj")
+    if highlighted_int ~= nil then
+      local highlighted_obj = api_get_inst(highlighted_int)
+      if highlighted_obj["oid"] == "magic_bees_magic_circle" then
+        local ritual_slots = api_get_slots(highlighted_obj["menu_id"])
+        local ritual_check = check_ritual(ritual_slots)
+        --api_log("ritual", ritual_check)
+        if ritual_check["amount"] > 0 then
+          complete_ritual(ritual_check["result"], ritual_check["amount"], ritual_slots)
+          api_play_sound("confetti")
+          api_create_effect(highlighted_obj["x"] + 16, highlighted_obj["y"] + 16, "BEE_CONFETTI", 50, BEE_CHAOTIC)
+          --api_create_effect(highlighted_obj["x"] + 16, highlighted_obj["y"] + 16, "BEE_PFX", 50, FONT_WHITE)
+          --api_create_effect(highlighted_obj["x"] + 16, highlighted_obj["y"], "GATE_GROWTH", 1, BEE_CHAOTIC)
+        end
+      end
     end
   end
 end
