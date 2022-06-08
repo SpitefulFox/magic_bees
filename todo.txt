@@ -31,6 +31,8 @@
   - Ritual to drain the lifespan of nearby apiaries???
   - Ritual to summon an npc
     - Whomst????
+  - Enchanted Apicola!!!!!!
+    - Potion effects aren't supported right now, right?  Riiiiiight?
 - Decorations?
   - Sinister ritual circle. For reasons. >.> <.<
   - Runed Walls
