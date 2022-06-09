@@ -86,16 +86,6 @@ function define_bees()
     "Archipelago residents have taken to leaving bowls of sugar water on their doorsteps as offerings."
   )
   
-  api_define_trait("magic", {
-    twilight = {"spoken"},
-    sacred = {"scream"},
-    lightning = {"tempest"},
-    hallowed = {"shout"},
-    fair = {"whisper"},
-    enchanted = {"whisper"}
-  }, {"silence"}) -- default for all the other bees
-  -- Silence, Whisper, Murmur, Spoken, Shout, Scream, Tempest... Anechoic
-  
   enchanted_bee = {
     id = "enchanted",
     title = "Enchanted",
@@ -159,6 +149,17 @@ function define_bees()
     -- "The Elden bee's population numbers are no longer tarnished thanks to the graceful apiarist, " .. api_get_property(api_get_player_instance(), "name") .. "!",
     -- "'I bet they summoned help.' - Beenjamin."
   -- )
+  
+  -- Turns out if you try to define a custom trait for bee species you haven't defined yet, they break!
+  api_define_trait("magic", {
+    twilight = {"spoken"},
+    sacred = {"scream"},
+    lightning = {"tempest"},
+    hallowed = {"shout"},
+    fair = {"whisper"},
+    enchanted = {"whisper"}
+  }, {"silence"}) -- default for all the other bees
+  -- Silence, Whisper, Murmur, Spoken, Shout, Scream, Tempest... Anechoic
 end
 
 
