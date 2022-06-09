@@ -5,6 +5,7 @@ MOD_NAME = "magic_bees"
 --MY_BOOK_OBJ = nil
 
 CHANGELING_TICK = 0
+SHADOW_TICK = 0
 
 function register()
   return {
@@ -55,6 +56,10 @@ function ready()
     playerer = api_get_player_position()
     api_create_obj("npc701", playerer["x"] + 16, playerer["y"] - 8)
   end
+  
+  -- if not api_check_discovery("bee:shadow") then
+    -- api_get_objects(nil, "magic_bees_mysterious_shadow")
+  -- end
 
   -- play a sound to celebrate our mod loading! :D
   --api_play_sound("confetti")
@@ -162,6 +167,38 @@ function clock()
              end
            end
          end
+      end
+    end
+  end
+  SHADOW_TICK = SHADOW_TICK + 1
+  if SHADOW_TICK >= 10 then
+    SHADOW_TICK = 0
+    local time = api_get_time()
+    if time["name"] == "Night" then
+      local shadows = api_get_objects(nil, "magic_bees_mysterious_shadow")
+      if #shadows > 0 then
+        for i=1, #shadows do
+          local lights = api_get_objects(30, "light1", shadows[i])
+          if #lights < 1 then
+            local lights = api_get_objects(30, "light2", shadows[i])
+          end
+          if #lights < 1 then
+            local lights = api_get_objects(30, "light3", shadows[i])
+          end
+          if #lights < 1 then
+            local lights = api_get_objects(30, "light4", shadows[i])
+          end
+          if #lights > 0 then
+            api_create_obj("beehive8", shadows[i]["x"], shadows[i]["y"])
+            local hive = api_get_menu_objects(5, "beehive8", shadows[i])
+            local slots = api_get_slots(hive[1]["menu_id"])
+            for j=10,12 do
+              api_slot_set(slots[j]["id"], "bee", 1, api_create_bee_stats("shadow", false))
+            end
+            api_create_effect(hive[1]["x"] + 8, hive[1]["y"] + 8, "BEE_CONFETTI", 50, FONT_WHITE)
+            api_destroy_inst(shadows[i]["id"])
+          end
+        end
       end
     end
   end

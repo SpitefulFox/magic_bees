@@ -13,6 +13,16 @@ function define_items()
     pickable = false
   }, "sprites/toadstool.png")
   
+  api_define_object({
+    id = "mysterious_shadow",
+    name = "Mysterious Shadow",
+    category = "???",
+    tooltip = "It's too dark to see!",
+    tools = {},
+    has_shadow = false,
+    pickable = false
+  }, "sprites/shadow_hive.png")
+  
   api_define_item({
     id = "fairy_dust",
     name = "Fairy Dust",
@@ -32,6 +42,16 @@ function define_items()
     shop_buy = 2,
     shop_sell = 1.5
   }, "sprites/magical_wax.png")
+  
+  api_define_item({
+    id = "dark_pearl",
+    name = "Dark Pearl",
+    category = "Beekeeping",
+    tooltip = "Produced by Shadow bees, can be sold for Rubees!",
+    bee_lore = "A pearl of dense wax that seems to make the area around it dimmer.",
+    shop_buy = 10,
+    shop_sell = 2
+  }, "sprites/dark_pearl.png")
   
   --Did you know the game freaks out if your item has "mead" in the name?
   api_define_item({
@@ -126,6 +146,38 @@ function define_bees()
     "sprites/enchanted_bee_mag.png",
     "Up and coming beekeeper " .. api_get_property(api_get_player_instance(), "name") .. " has introduced Enchanted Bees to the archipelago!",
     "'I don't know who keeps refilling my apicola keg, but I'm not going to argue.' said one local sea captain."
+  )
+  
+  shadow_bee = {
+    id = "shadow",
+    title = "Shadow",
+    latin = "Apis Umbra",
+    hint = "It would take a bright light to find these bees moving about in the shadows.",
+    desc = "Almost completely blind, the Shadow Bee works only in darkest night, making unseen honey in pitch black hives.",
+    lifespan = { "Short" },
+    productivity = {"Normal"},
+    fertility = { "Fertile", "Fecund" },
+    stability = {"Stable"},
+    behaviour = {"Nocturnal"},
+    climate = {"Polar"},
+    rainlover = false,
+    snowlover = false,
+    grumpy = true,
+    produce = "magic_bees_dark_pearl",
+    recipes = {},
+    calming = {"flower7", "flower12"},
+    chance = 100,
+    bid = "mS",
+    requirement = ""
+  }
+  
+  api_define_bee(shadow_bee, 
+    "sprites/shadow_bee_item.png", "sprites/shadow_bee_shiny.png", 
+    "sprites/shadow_bee_hd.png",
+    {r=59, g=0, b=255},
+    "sprites/shadow_bee_mag.png",
+    "Bright-eyed beekeeper " .. api_get_property(api_get_player_instance(), "name") .. " has restored the Shadow Bee!",
+    "Residents have reported being afraid to go out after dark."
   )
   
   -- elden_bee = {
