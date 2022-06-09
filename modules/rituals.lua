@@ -8,6 +8,16 @@ ritual_recipes = {
     core = "mead",
     reagents = {"magic_bees_fairy_dust"},
     result = "magic_bees_fairy_cola"
+  },
+  { 
+    core = "beehive1",
+    reagents = {"morningdew", "morningdew", "honeydew", "honeydew"},
+    result = "beehive3"
+  },
+  { 
+    core = "npc3",
+    reagents = {"log", "log", "log", "log", "log", "log" },
+    result = "npc69"  
   }
 }
 
@@ -106,14 +116,16 @@ function check_ritual(slots)
       if output == 0 then
         output = 1
       end
+      local usedSlot = {}
       for j = 1,#ritual_recipes[i]["reagents"] do
         local valid = false
         for k = 2,7 do
-          if slots[k]["item"] ~= "" and item_match(ritual_recipes[i]["reagents"][j], slots[k]) then
+          if not contains(usedSlot, k) and slots[k]["item"] ~= "" and item_match(ritual_recipes[i]["reagents"][j], slots[k]) then
             if slots[k]["count"] > 0 and slots[k]["count"] < output then
               output = slots[k]["count"]
             end
             valid = true
+            table.insert(usedSlot, k)
             break
           end
         end
@@ -121,12 +133,21 @@ function check_ritual(slots)
           return {result = ritual_recipes[i]["result"], amount = 0}
         end
       end
-      return {result = ritual_recipes[i]["result"], amount = output}
+      return {result = ritual_recipes[i]["result"], amount = output, used = usedSlot}
     -- else
       -- api_log("ritual", "Core not a match")
     end
   end
   return {result = "", amount = -1}
+end
+
+function contains(list, item)
+  for i=1,#list do
+    if list[i] == item then
+      return true
+    end
+  end
+  return false
 end
 
 --Special cases for beeeeeeeeeeees
@@ -145,17 +166,20 @@ function item_match(itemA, itemB)
   end
 end
 
-function complete_ritual(result, amount, slots)
+function complete_ritual(result, amount, slots, used, x, y)
   if string.sub(result, 1, 4) == "bee:" then
     local species = string.sub(result, 5, #result)
     api_slot_set(slots[1]["id"], "bee", 1, api_create_bee_stats(species, false))
-    for i = 2,7 do
-      api_slot_decr(slots[i]["id"])
+    for i = 1,#used do
+      api_slot_decr(slots[used[i]]["id"])
     end
   else
+    if slots[1]["count"] > amount then
+      api_create_item(slots[1]["item"], slots[1]["count"] - amount, x, y, slots[1]["stats"])
+    end
     api_slot_set(slots[1]["id"], result, amount)
-    for i = 2,7 do
-      api_slot_decr(slots[i]["id"], amount)
+    for i = 1,#used do
+      api_slot_decr(slots[used[i]]["id"], amount)
     end
   end
 end

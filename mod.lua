@@ -97,11 +97,11 @@ function click(button, click_type)
         local ritual_check = check_ritual(ritual_slots)
         --api_log("ritual", ritual_check)
         if ritual_check["amount"] > 0 then
-          complete_ritual(ritual_check["result"], ritual_check["amount"], ritual_slots)
+          complete_ritual(ritual_check["result"], ritual_check["amount"], ritual_slots, ritual_check["used"], highlighted_obj["x"], highlighted_obj["y"])
           api_play_sound("confetti")
           api_create_effect(highlighted_obj["x"] + 16, highlighted_obj["y"] + 16, "BEE_CONFETTI", 50, BEE_CHAOTIC)
-          api_create_effect(highlighted_obj["x"] + 16, highlighted_obj["y"] + 16, "BEE_PFX", 50, FONT_WHITE)
-          api_create_effect(highlighted_obj["x"] + 16, highlighted_obj["y"] + 16, "QUEEN_BEE", 50, FONT_WHITE)
+          api_create_effect(highlighted_obj["x"] + 16, highlighted_obj["y"] + 16, "BEE_PFX", 50, FONT_BLUE)
+          --api_create_effect(highlighted_obj["x"] + 16, highlighted_obj["y"] + 16, "BEE_TRAIL", 50, FONT_WHITE)
           --api_create_effect(highlighted_obj["x"] + 16, highlighted_obj["y"], "GATE_GROWTH", 1, BEE_CHAOTIC)
         end
       end
