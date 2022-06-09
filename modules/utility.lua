@@ -33,14 +33,24 @@ function define_items()
     shop_sell = 1.5
   }, "sprites/magical_wax.png")
   
+  --Did you know the game freaks out if your item has "mead" in the name?
   api_define_item({
-    id = "rune_arc",
-    name = "Rune Arc",
-    category = "Soulsborne",
-    tooltip = "???|Produced by Elden bees, can be sold for Rubees!",
-    shop_buy = 10,
-    shop_sell = 2
-  }, "sprites/rune_arc.png")
+    id = "fairy_cola",
+    name = "Enchanted Apicola",
+    category = "Liquids",
+    tooltip = "Has a sweet, fruity flavor, but no special effects.|Can be sold for Rubees!",
+    shop_buy = 28,
+    shop_sell = 20
+  }, "sprites/fairy_mead.png")
+  
+  -- api_define_item({
+    -- id = "rune_arc",
+    -- name = "Rune Arc",
+    -- category = "Soulsborne",
+    -- tooltip = "???|Produced by Elden bees, can be sold for Rubees!",
+    -- shop_buy = 10,
+    -- shop_sell = 2
+  -- }, "sprites/rune_arc.png")
   -- add the item to the workbench as a recipe
   --recipe = {
     --{ item = "log", amount = 10 },

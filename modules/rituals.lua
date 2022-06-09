@@ -3,6 +3,11 @@ ritual_recipes = {
     core = "bee:uncommon",
     reagents = {"flower3", "stickypearl", "honeydew"},
     result = "bee:enchanted"
+  },
+  {
+    core = "mead",
+    reagents = {"magic_bees_fairy_dust"},
+    result = "magic_bees_fairy_cola"
   }
 }
 
