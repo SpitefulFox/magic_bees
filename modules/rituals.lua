@@ -14,6 +14,11 @@ ritual_recipes = {
     reagents = {"morningdew", "morningdew", "honeydew", "honeydew"},
     result = "beehive3"
   },
+  {
+    core = "mead",
+    reagents = {"magic_bees_shadow_oil"},
+    result = "magic_bees_shadow_cola"
+  },
   { 
     core = "npc3",
     reagents = {"log", "log", "log", "log", "log", "log" },
@@ -130,10 +135,16 @@ function check_ritual(slots)
           end
         end
         if not valid then
-          return {result = ritual_recipes[i]["result"], amount = 0}
+          if ritual_recipes[i]["core"] == "mead" then
+            output = 0
+          else
+            return {result = ritual_recipes[i]["result"], amount = 0}
+          end
         end
       end
-      return {result = ritual_recipes[i]["result"], amount = output, used = usedSlot}
+      if output > 0 then
+        return {result = ritual_recipes[i]["result"], amount = output, used = usedSlot}
+      end
     -- else
       -- api_log("ritual", "Core not a match")
     end

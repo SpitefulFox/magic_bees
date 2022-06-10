@@ -44,14 +44,14 @@ function define_items()
   }, "sprites/magical_wax.png")
   
   api_define_item({
-    id = "dark_pearl",
-    name = "Dark Pearl",
+    id = "shadow_oil",
+    name = "Shadow Oil",
     category = "Beekeeping",
     tooltip = "Produced by Shadow bees, can be sold for Rubees!",
-    bee_lore = "A pearl of dense wax that seems to make the area around it dimmer.",
+    bee_lore = "A dark, oily residue valued for making ink.",
     shop_buy = 10,
     shop_sell = 2
-  }, "sprites/dark_pearl.png")
+  }, "sprites/shadow_oil.png")
   
   --Did you know the game freaks out if your item has "mead" in the name?
   api_define_item({
@@ -62,6 +62,15 @@ function define_items()
     shop_buy = 28,
     shop_sell = 20
   }, "sprites/fairy_mead.png")
+  
+  api_define_item({
+    id = "shadow_cola",
+    name = "Enchanted Apicola",
+    category = "Liquids",
+    tooltip = "Has a very tart, yet sweet, flavor, but no special effects.|Can be sold for Rubees!",
+    shop_buy = 28,
+    shop_sell = 20
+  }, "sprites/shadow_mead.png")
   
   -- api_define_item({
     -- id = "rune_arc",
@@ -163,7 +172,7 @@ function define_bees()
     rainlover = false,
     snowlover = false,
     grumpy = true,
-    produce = "magic_bees_dark_pearl",
+    produce = "magic_bees_shadow_oil",
     recipes = {},
     calming = {"flower7", "flower12"},
     chance = 100,

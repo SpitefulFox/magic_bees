@@ -33,8 +33,16 @@
     - Whomst????
   - Enchanted Apicola!!!!!!
     - Potion effects aren't supported right now, right?  Riiiiiight?
+  - Enchanted Fermenter!
+    - Temporal bee products and a barrel to enchant
+	- Ferments faster!!!!
+  - Magical Wax Canister
+    - Enchant a wax canister with magic wax.
+	- Holds even more liquid?
+	- Transfers faster???
 - Decorations?
   - Sinister ritual circle. For reasons. >.> <.<
   - Runed Walls
   - Sigil Carpet
+    - Oops! No floors! Thanks, Gamemaker
   - Crystal Ball?
