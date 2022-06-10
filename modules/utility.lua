@@ -161,7 +161,7 @@ function define_bees()
     id = "shadow",
     title = "Shadow",
     latin = "Apis Umbra",
-    hint = "It would take a bright light to find these bees moving about in the shadows.",
+    hint = "It would take a bright light to find these bees moving about in the shadows during the night.",
     desc = "Almost completely blind, the Shadow Bee works only in darkest night, making unseen honey in pitch black hives.",
     lifespan = { "Short" },
     productivity = {"Normal"},
@@ -228,7 +228,8 @@ function define_bees()
     lightning = {"tempest"},
     hallowed = {"shout"},
     fair = {"whisper"},
-    enchanted = {"whisper"}
+    enchanted = {"whisper"},
+    shadow = {"murmur"}
   }, {"silence"}) -- default for all the other bees
   -- Silence, Whisper, Murmur, Spoken, Shout, Scream, Tempest... Anechoic
 end

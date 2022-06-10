@@ -1,10 +1,11 @@
 - Bees?
   - Philosopher Bee, which the mainlanders can easily tell apart from the Sorcerous Bee. Produces Cinnabar.
     - Entire line of alchemical bees?
-  - Shadow Bee. ooooOOOOoooOOOooooo
   - Void Bee. oooooooooooOOOOOOOOOOOoooooooOOOOOOOoooooooooo
+    - Shadow Bee + Something.  Needs Silent or lower magic.
   - Wizardly Bee.
   - Solar Bee. Glowing + something.
+    - Bred at high noon. * pew pew pew *
   - Stellar Bee
   - Ecclesiastic Bee?
   - The five elemental bees: Inferno Bee, Aqueous Bee, Terra Bee, Aero Bee, Umami Bee

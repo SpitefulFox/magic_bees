@@ -57,9 +57,21 @@ function ready()
     api_create_obj("npc701", playerer["x"] + 16, playerer["y"] - 8)
   end
   
-  -- if not api_check_discovery("bee:shadow") then
-    -- api_get_objects(nil, "magic_bees_mysterious_shadow")
-  -- end
+  if not api_check_discovery("bee:shadow") then
+    local shadows = api_all_objects("magic_bees_mysterious_shadow")
+    if #shadows < 1 then
+      for i = 1, 50 do
+        local ex = api_random_range(332, 1792)
+        local wy = api_random_range(3380, 4212)
+        ex = ex - (ex % 16)
+        wy = wy - (wy % 16)
+        if api_get_ground(ex, wy) == "grass3" then
+          api_create_obj("magic_bees_mysterious_shadow", ex, wy)
+          break
+        end
+      end
+    end
+  end
 
   -- play a sound to celebrate our mod loading! :D
   --api_play_sound("confetti")
@@ -178,15 +190,15 @@ function clock()
       local shadows = api_get_objects(nil, "magic_bees_mysterious_shadow")
       if #shadows > 0 then
         for i=1, #shadows do
-          local lights = api_get_objects(30, "light1", shadows[i])
+          local lights = api_get_objects(40, "light1", shadows[i])
           if #lights < 1 then
-            local lights = api_get_objects(30, "light2", shadows[i])
+            local lights = api_get_objects(40, "light2", shadows[i])
           end
           if #lights < 1 then
-            local lights = api_get_objects(30, "light3", shadows[i])
+            local lights = api_get_objects(40, "light3", shadows[i])
           end
           if #lights < 1 then
-            local lights = api_get_objects(30, "light4", shadows[i])
+            local lights = api_get_objects(40, "light4", shadows[i])
           end
           if #lights > 0 then
             api_create_obj("beehive8", shadows[i]["x"], shadows[i]["y"])
@@ -204,31 +216,43 @@ function clock()
   end
 end
 
-function worldgen()
-  for ex = 1408 - 16, 1408 + 32, 16 do
-    for wy = 960 - 16, 960 + 32, 16 do
-      if api_get_ground(ex, wy) ~= "grass1" then
-        api_set_ground("grass1", ex, wy)
+function worldgen(before_objects)
+  if before_objects then
+    for ex = 1408 - 16, 1408 + 32, 16 do
+      for wy = 960 - 16, 960 + 32, 16 do
+        if api_get_ground(ex, wy) ~= "grass1" then
+          api_set_ground("grass1", ex, wy)
+        end
       end
     end
-  end
-  api_create_obj("npc701", 1408, 960)
-  
-  local shrooms = 0
-  for i = 1, 75 do
-    local ex = api_random_range(1273, 2811)
-    local wy = api_random_range(292, 976)
-    ex = ex - (ex % 16)
-    wy = wy - (wy % 16)
-    if api_get_ground(ex, wy) == "grass1" then
-      api_create_obj("magic_bees_toadstool", ex, wy)
-      shrooms = shrooms + 1
-      if shrooms >= 25 then
-        i = 75
+    api_create_obj("npc701", 1408, 960)
+  else
+    local shrooms = 0
+    for i = 1, 75 do
+      local ex = api_random_range(1273, 2811)
+      local wy = api_random_range(292, 976)
+      ex = ex - (ex % 16)
+      wy = wy - (wy % 16)
+      if api_get_ground(ex, wy) == "grass1" then
+        api_create_obj("magic_bees_toadstool", ex, wy)
+        shrooms = shrooms + 1
+        if shrooms >= 25 then
+          i = 75
+        end
       end
     end
-  end
-  
+    
+    for i = 1, 50 do
+      local ex = api_random_range(332, 1792)
+      local wy = api_random_range(3380, 4212)
+      ex = ex - (ex % 16)
+      wy = wy - (wy % 16)
+      if api_get_ground(ex, wy) == "grass3" then
+        api_create_obj("magic_bees_mysterious_shadow", ex, wy)
+        break
+      end
+    end
+  end  
 end
 
 -- data is called any time we run api_get_data() or api_set_data()
