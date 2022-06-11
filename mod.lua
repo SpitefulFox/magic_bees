@@ -51,8 +51,10 @@ function ready()
   --end
 
   -- if we haven't already spawned our new npc, spawn them
+  api_log("ready", "Looking for wizard")
   local wizard = api_get_menu_objects(nil, "npc701")
   if #wizard == 0 then
+    api_log("ready", "Distressing lack of wizards")
     playerer = api_get_player_position()
     api_create_obj("npc701", playerer["x"] + 16, playerer["y"] - 8)
   end
@@ -73,8 +75,14 @@ function ready()
     end
   end
 
-  -- play a sound to celebrate our mod loading! :D
-  --api_play_sound("confetti")
+  if api_mod_exists("uranium_bee") then
+    api_mod_call("uranium_bee", "add_bee_elements", { "fair", 1, {"nature"}})
+    api_mod_call("uranium_bee", "add_bee_elements", { "enchanted", 1, {"knowledge"}})
+    api_mod_call("uranium_bee", "add_bee_elements", { "shadow", 3, {"darkness", "darkness", "darkness"}})
+    api_mod_call("uranium_bee", "add_item_elements", { "magic_bees_toadstool", 2, {"nature", "earth"}})
+    api_mod_call("uranium_bee", "add_item_elements", { "magic_bees_magical_wax", 1, {"knowledge"}})
+    api_mod_call("uranium_bee", "add_item_elements", { "magic_bees_shadow_oil", 3, {"darkness", "darkness", "darkness"}})
+  end
 
 end
 
@@ -217,7 +225,9 @@ function clock()
 end
 
 function worldgen(before_objects)
+  api_log("worldgen", "Worldgen time!")
   if before_objects then
+    api_log("worldgen", "Before objects!")
     for ex = 1408 - 16, 1408 + 32, 16 do
       for wy = 960 - 16, 960 + 32, 16 do
         if api_get_ground(ex, wy) ~= "grass1" then
@@ -225,8 +235,10 @@ function worldgen(before_objects)
         end
       end
     end
+    --api_set_ground(api_get_ground(1456, 992), 1456, 992)
     api_create_obj("npc701", 1408, 960)
   else
+    api_log("worldgen", "After objects!")
     local shrooms = 0
     for i = 1, 75 do
       local ex = api_random_range(1273, 2811)
