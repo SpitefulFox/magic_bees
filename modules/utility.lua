@@ -53,6 +53,16 @@ function define_items()
     shop_sell = 2
   }, "sprites/shadow_oil.png")
   
+  api_define_item({
+    id = "rune_shard",
+    name = "Rune Shard",
+    category = "Beekeeping",
+    tooltip = "Produced by Runic bees, can be sold for Rubees!",
+    bee_lore = "A shard of clay with a luminescent symbol carved in it by random bee scratchings. Some people like to throw handfuls of them as a form of divination.",
+    shop_buy = 10,
+    shop_sell = 2
+  }, "sprites/rune_shard.png")
+  
   --Did you know the game freaks out if your item has "mead" in the name?
   api_define_item({
     id = "fairy_cola",
@@ -113,7 +123,8 @@ function define_bees()
     calming = {},
     chance = 100,
     bid = "mF",
-    requirement = ""
+    requirement = "",
+    tier = 2
   }
   
   api_define_bee(fair_bee, 
@@ -145,7 +156,8 @@ function define_bees()
     calming = {},
     chance = 100,
     bid = "mE",
-    requirement = ""
+    requirement = "",
+    tier = 2
   }
   
   api_define_bee(enchanted_bee, 
@@ -177,7 +189,8 @@ function define_bees()
     calming = {"flower7", "flower12"},
     chance = 100,
     bid = "mS",
-    requirement = ""
+    requirement = "",
+    tier = 3
   }
   
   api_define_bee(shadow_bee, 
@@ -187,6 +200,38 @@ function define_bees()
     "sprites/shadow_bee_mag.png",
     "Bright-eyed beekeeper " .. api_get_property(api_get_player_instance(), "name") .. " has restored the Shadow Bee!",
     "Residents have reported being afraid to go out after dark."
+  )
+  
+  runic_bee = {
+    id = "runic",
+    title = "Runic",
+    latin = "Apis Signum",
+    hint = "Apis Petra can be enchanted with certain materials.",
+    desc = "The Runic Bee carves strange patterns into nearby surfaces as well as their own hives. Some fringe theorists say analyzing enough of the patterns will uncover a greater mystery, but the Apicademy dismisses such ramblings.",
+    lifespan = { "Short", "Normal" },
+    productivity = {"Normal", "Fast"},
+    fertility = { "Unlucky", "Fertile" },
+    stability = {"Erratic", "Unstable", "Normal"},
+    behaviour = {"Nocturnal"},
+    climate = {"Temperate"},
+    rainlover = false,
+    snowlover = false,
+    grumpy = false,
+    produce = "magic_bees_rune_shard",
+    recipes = {},
+    chance = 100,
+    bid = "mR",
+    requirement = "",
+    tier = 3
+  }
+  
+  api_define_bee(runic_bee, 
+    "sprites/runic_bee_item.png", "sprites/runic_bee_shiny.png", 
+    "sprites/runic_bee_hd.png",
+    {r=224, g=209, b=0},
+    "sprites/runic_bee_mag.png",
+    "Thanks to " .. api_get_property(api_get_player_instance(), "name") .. "'s efforts, the Runic Bee has been restored!",
+    "Bee-carved dice have become the latest craze in the local tabletop gaming scene."
   )
   
   -- elden_bee = {
@@ -229,7 +274,8 @@ function define_bees()
     hallowed = {"shout"},
     fair = {"whisper"},
     enchanted = {"whisper"},
-    shadow = {"murmur"}
+    shadow = {"murmur"},
+    runic = {"murmur", "spoken"}
   }, {"silence"}) -- default for all the other bees
   -- Silence, Whisper, Murmur, Spoken, Shout, Scream, Tempest... Anechoic
 end
