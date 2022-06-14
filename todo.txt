@@ -26,6 +26,7 @@
   - Magic is used for ... ? Profit!
     - Ritual recipes?
 - Rituals
+  - Optimize the draw method by saving item sprites.
   - Terraforming rituals for changing biomes
   - Ritual to fill canister with resin?
   - Ritual to change time of day
