@@ -26,6 +26,11 @@ ritual_recipes = {
   }
 }
 
+--Adds a new ritual recipe to the list. Table has "core" for the item in the center, "reagents" for a list of up to six ingredients in the other six slots, and "result" for the crafting result. Use "bee:species" to use bees in the recipes. Core item must be unique.
+function add_ritual(ritual_recipe)
+  table.insert(ritual_recipes, ritual_recipe)
+end
+
 function define_rituals()
   api_define_menu_object({
     id = "magic_circle",
