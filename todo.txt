@@ -48,3 +48,4 @@
   - Sigil Carpet
     - Oops! No floors! Thanks, Gamemaker
   - Crystal Ball?
+    - Mushy already adds one!!!!
