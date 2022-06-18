@@ -25,8 +25,15 @@
   - Maybe lower Productivity boosts magic production?
   - Magic is used for ... ? Profit!
     - Ritual recipes?
+- NPC?
+  - Buzzriel
+    - Needs more stuff to sell!
+  - Swamp ghost that shows up at night during rain?
+  - Yuki-onna?
 - Rituals
   - Optimize the draw method by saving item sprites.
+  - Ritual to extract bee trait onto a scroll
+  - Ritual to imprint trait scroll onto a bee
   - Terraforming rituals for changing biomes
   - Ritual to fill canister with resin?
   - Ritual to change time of day
@@ -44,8 +51,9 @@
 	- Transfers faster???
 - Decorations?
   - Sinister ritual circle. For reasons. >.> <.<
-  - Runed Walls
+  - Candles!
   - Sigil Carpet
     - Oops! No floors! Thanks, Gamemaker
   - Crystal Ball?
     - Mushy already adds one!!!!
+  - Raven familiar!
