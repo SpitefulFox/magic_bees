@@ -234,6 +234,8 @@ function define_bees()
     "Bee-carved dice have become the latest craze in the local tabletop gaming scene."
   )
   
+  api_define_bee_recipe("enchanted", "rocky", "runic", "runic_bee_recipe")
+  
   -- elden_bee = {
     -- id = "elden",
     -- title = "Elden",
@@ -278,6 +280,14 @@ function define_bees()
     runic = {"murmur", "spoken"}
   }, {"silence"}) -- default for all the other bees
   -- Silence, Whisper, Murmur, Spoken, Shout, Scream, Tempest... Anechoic
+end
+
+function runic_bee_recipe(bee_a, bee_b, beehive)
+  if (bee_a == "enchanted" and bee_b == "rocky") or (bee_a == "rocky" and bee_b == "enchanted") then
+    chance = api_random(99) + 1
+    return (chance >= 50)
+  end
+  return false
 end
 
 

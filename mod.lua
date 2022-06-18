@@ -11,7 +11,7 @@ function register()
   return {
     name = MOD_NAME,
     hooks = {"ready", "init", "click", "clock", "worldgen"},
-    modules = {"utility", "rituals"}
+    modules = {"define", "rituals"}
   }
 end
 
