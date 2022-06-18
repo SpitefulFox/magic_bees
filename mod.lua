@@ -25,6 +25,15 @@ function init()
   define_rituals()
   --define_book()
   define_npc()
+  
+  api_define_workbench("Magic Bees", {
+    t1 = "Athames",
+    t2 = "Sigils",
+    t3 = "Orbs",
+    t4 = "Amulets",
+    t5 = "Apocrypha"
+  })
+  
   return "Success"
 end
 
@@ -76,11 +85,12 @@ function ready()
   end
 
   if api_mod_exists("uranium_bee") then
-    api_mod_call("uranium_bee", "add_bee_elements", { "fair", 1, {"nature"}})
+    api_mod_call("uranium_bee", "add_bee_elements", { "fair", 2, {"nature", "friendship"}})
     api_mod_call("uranium_bee", "add_bee_elements", { "enchanted", 1, {"knowledge"}})
     api_mod_call("uranium_bee", "add_bee_elements", { "shadow", 3, {"darkness", "darkness", "darkness"}})
     api_mod_call("uranium_bee", "add_item_elements", { "magic_bees_toadstool", 2, {"nature", "earth"}})
     api_mod_call("uranium_bee", "add_item_elements", { "magic_bees_magical_wax", 1, {"knowledge"}})
+    api_mod_call("uranium_bee", "add_item_elements", { "magic_bees_fairy_dust", 1, {"friendship"}})
     api_mod_call("uranium_bee", "add_item_elements", { "magic_bees_shadow_oil", 3, {"darkness", "darkness", "darkness"}})
   end
 

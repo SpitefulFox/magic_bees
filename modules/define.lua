@@ -13,6 +13,13 @@ function define_items()
     pickable = false
   }, "sprites/toadstool.png")
   
+  api_define_wall({
+    id = "701",
+    name = "Runed Wall",
+    shop_buy = 2,
+    shop_sell = 0.5
+  }, "sprites/rune_wall_sprite.png")
+  
   api_define_object({
     id = "mysterious_shadow",
     name = "Mysterious Shadow",
@@ -219,9 +226,9 @@ function define_bees()
     grumpy = false,
     produce = "magic_bees_rune_shard",
     recipes = {},
-    chance = 100,
+    chance = 24,
     bid = "mR",
-    requirement = "",
+    requirement = "While near runed walls",
     tier = 3
   }
   
@@ -271,7 +278,7 @@ function define_bees()
   -- Turns out if you try to define a custom trait for bee species you haven't defined yet, they break!
   api_define_trait("magic", {
     twilight = {"spoken"},
-    sacred = {"scream"},
+    sacred = {"roar"},
     lightning = {"tempest"},
     hallowed = {"shout"},
     fair = {"whisper"},
@@ -279,13 +286,24 @@ function define_bees()
     shadow = {"murmur"},
     runic = {"murmur", "spoken"}
   }, {"silence"}) -- default for all the other bees
-  -- Silence, Whisper, Murmur, Spoken, Shout, Scream, Tempest... Anechoic
+  -- Silence, Whisper, Murmur, Spoken, Shout, Roar, Tempest... Anechoic
 end
 
 function runic_bee_recipe(bee_a, bee_b, beehive)
   if (bee_a == "enchanted" and bee_b == "rocky") or (bee_a == "rocky" and bee_b == "enchanted") then
-    chance = api_random(99) + 1
-    return (chance >= 50)
+    api_log("mutation", "Correct combination of bees")
+    local bhive = api_get_inst(beehive)
+    if bhive then
+      api_log("mutation", "Successfully grabbed hive at " .. bhive["x"] .. ", " .. bhive["y"])
+    end
+    local runes = api_get_objects(80, "wall701", bhive)
+    if #runes > 10 then
+      api_log("mutation", "Correct number of runed walls. Roll the dice")
+      chance = api_random(99) + 1
+      return chance <= 24
+    else
+      api_log("mutation", "Only found " .. #runes .. " runed walls")
+    end
   end
   return false
 end
@@ -316,7 +334,7 @@ function define_npc()
     tooltip = "BEEHOLD!",
     shop = true,
     walking = true,
-    stock = {"magic_bees_magic_circle", "magic_bees_fairy_dust", "magic_bees_toadstool", "magic_bees_magical_wax", "log", "log", "log", "log", "log", "log"}, -- max 10
+    stock = {"magic_bees_magic_circle", "wall701", "magic_bees_fairy_dust", "magic_bees_toadstool", "magic_bees_magical_wax", "log", "log", "log", "log", "log"}, -- max 10
     specials = {"magic_bees_fairy_dust", "unstabledust", "spice4"}, -- must be 3
     dialogue = {
       "Hark, beekeeper! I wish ye good fortune in your noble quest!"
