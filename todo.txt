@@ -33,7 +33,9 @@
 - Rituals
   - Optimize the draw method by saving item sprites.
   - Ritual to extract bee trait onto a scroll
+    - Takes some stored magic. Grabs a random trait and consumes the bee.
   - Ritual to imprint trait scroll onto a bee
+    - Takes a lot of stored magic. The more extreme the trait, the more magic.
   - Terraforming rituals for changing biomes
   - Ritual to fill canister with resin?
   - Ritual to change time of day
