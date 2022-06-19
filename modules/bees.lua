@@ -103,7 +103,7 @@ function define_bees()
     id = "runic",
     title = "Runic",
     latin = "Apis Signum",
-    hint = "Apis Petra can be enchanted with certain materials.",
+    hint = "Apis Petra and Apis Incantatus show great interest in nearby ritual circles. Perhaps a circle of runed walls might inspire them.",
     desc = "The Runic Bee carves strange patterns into nearby surfaces as well as their own hives. Some fringe theorists say analyzing enough of the patterns will uncover a greater mystery, but the Apicademy dismisses such ramblings.",
     lifespan = { "Short", "Normal" },
     productivity = {"Normal", "Fast"},
@@ -118,7 +118,7 @@ function define_bees()
     recipes = {},
     chance = 24,
     bid = "mR",
-    requirement = "While near runed walls",
+    requirement = "While near a ritual circle with four runed walls",
     tier = 3
   }
   
@@ -181,13 +181,14 @@ end
 
 function runic_bee_recipe(bee_a, bee_b, beehive)
   if (bee_a == "enchanted" and bee_b == "rocky") or (bee_a == "rocky" and bee_b == "enchanted") then
-    api_log("mutation", "Correct combination of bees")
+    --api_log("mutation", "Correct combination of bees")
     local bhive = api_get_inst(beehive)
-    if bhive then
-      api_log("mutation", "Successfully grabbed hive at " .. bhive["x"] .. ", " .. bhive["y"])
-    end
+    -- if bhive then
+      -- api_log("mutation", "Successfully grabbed hive at " .. bhive["x"] .. ", " .. bhive["y"])
+    -- end
     local circles = api_get_menu_objects(100, "magic_bees_magic_circle", bhive)
     if #circles > 0 then
+      api_log("mutation", #circles .. " circles found!")
       for i=1,#circles do
         local slots = api_get_slots(circles[i]["menu_id"])
         local runes = 0
@@ -197,7 +198,7 @@ function runic_bee_recipe(bee_a, bee_b, beehive)
           end
         end
         if runes >= 4 then
-          return get_stable_chance(24, beehive)
+          return get_stable_chance(24, bhive["menu_id"])
         end
       end
     end
@@ -206,16 +207,20 @@ function runic_bee_recipe(bee_a, bee_b, beehive)
 end
 
 function get_stable_chance(base_chance, beehive)
+  --api_log("mutation", "Beehive? " .. beehive)
   local slots = api_get_slots(beehive)
+  -- if #slots < 1 then
+    -- api_log("mutation", "No slots?!")
+  -- end
   if slots[1]["item"] == "" then
-    api_log("mutation", "No bee in slot 1?!")
+    --api_log("mutation", "No bee in slot 1?!")
     return false
   end
   local stability = slots[1]["stats"]["d_traits"]["stability"]
   if stability then
     return (api_random(99) + 1 - stability_modifier(stability)) < base_chance
   end
-  api_log("mutation", "No stability?!")
+  --api_log("mutation", "No stability?!")
   return false
 end
 
