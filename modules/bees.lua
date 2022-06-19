@@ -171,12 +171,13 @@ function define_bees()
     sacred = {"roar"},
     lightning = {"tempest"},
     hallowed = {"shout"},
+    glitched = {"anechoic", "silent", "whisper", "murmur", "spoken", "shout", "roar", "tempest"},
     fair = {"whisper"},
     enchanted = {"whisper"},
     shadow = {"murmur"},
     runic = {"murmur", "spoken"}
-  }, {"silence"}) -- default for all the other bees
-  -- Silence, Whisper, Murmur, Spoken, Shout, Roar, Tempest... Anechoic
+  }, {"silent"}) -- default for all the other bees
+  -- Silent, Whisper, Murmur, Spoken, Shout, Roar, Tempest... Anechoic
 end
 
 function runic_bee_recipe(bee_a, bee_b, beehive)
