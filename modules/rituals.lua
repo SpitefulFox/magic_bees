@@ -55,7 +55,7 @@ function define_rituals()
     buttons = {"Help", "Target", "Move", "Close"},
     info = {
       {"1. Core Item", "GREEN"},
-      {"2. Reagents", "RED"},
+      {"2. Reagents", "BLUE"},
       {"3. Extra Storage", "WHITE"},
     },
     tools = {"mouse1", "hammer1"},
