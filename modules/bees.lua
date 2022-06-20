@@ -25,10 +25,10 @@ function define_bees()
   }
   
   api_define_bee(fair_bee, 
-    "sprites/fair_bee_item.png", "sprites/fair_bee_shiny.png", 
-    "sprites/fair_bee_hd.png",
+    "sprites/bees/fair_bee_item.png", "sprites/bees/fair_bee_shiny.png", 
+    "sprites/bees/fair_bee_hd.png",
     {r=255, g=142, b=236},
-    "sprites/fair_bee_mag.png",
+    "sprites/bees/fair_bee_mag.png",
     "Flying straight out of a fairy tale, the Fair Bees have been repopulated by the apiarist that may be called " .. api_get_property(api_get_player_instance(), "name") .. "!",
     "Archipelago residents have taken to leaving bowls of sugar water on their doorsteps as offerings."
   )
@@ -58,10 +58,10 @@ function define_bees()
   }
   
   api_define_bee(enchanted_bee, 
-    "sprites/enchanted_bee_item.png", "sprites/enchanted_bee_shiny.png", 
-    "sprites/enchanted_bee_hd.png",
+    "sprites/bees/enchanted_bee_item.png", "sprites/bees/enchanted_bee_shiny.png", 
+    "sprites/bees/enchanted_bee_hd.png",
     {r=66, g=132, b=255},
-    "sprites/enchanted_bee_mag.png",
+    "sprites/bees/enchanted_bee_mag.png",
     "Up and coming beekeeper " .. api_get_property(api_get_player_instance(), "name") .. " has introduced Enchanted Bees to the archipelago!",
     "'I don't know who keeps refilling my apicola keg, but I'm not going to argue.' said one local sea captain."
   )
@@ -91,10 +91,10 @@ function define_bees()
   }
   
   api_define_bee(shadow_bee, 
-    "sprites/shadow_bee_item.png", "sprites/shadow_bee_shiny.png", 
-    "sprites/shadow_bee_hd.png",
+    "sprites/bees/shadow_bee_item.png", "sprites/bees/shadow_bee_shiny.png", 
+    "sprites/bees/shadow_bee_hd.png",
     {r=59, g=0, b=255},
-    "sprites/shadow_bee_mag.png",
+    "sprites/bees/shadow_bee_mag.png",
     "Bright-eyed beekeeper " .. api_get_property(api_get_player_instance(), "name") .. " has restored the Shadow Bee!",
     "Residents have reported being afraid to go out after dark."
   )
@@ -123,10 +123,10 @@ function define_bees()
   }
   
   api_define_bee(runic_bee, 
-    "sprites/runic_bee_item.png", "sprites/runic_bee_shiny.png", 
-    "sprites/runic_bee_hd.png",
+    "sprites/bees/runic_bee_item.png", "sprites/bees/runic_bee_shiny.png", 
+    "sprites/bees/runic_bee_hd.png",
     {r=224, g=209, b=0},
-    "sprites/runic_bee_mag.png",
+    "sprites/bees/runic_bee_mag.png",
     "Thanks to " .. api_get_property(api_get_player_instance(), "name") .. "'s efforts, the Runic Bee has been restored!",
     "Bee-carved dice have become the latest craze in the local tabletop gaming scene."
   )
@@ -157,27 +157,27 @@ function define_bees()
   -- }
   
   -- api_define_bee(elden_bee, 
-    -- "sprites/elden_bee_item.png", "sprites/elden_bee_shiny.png", 
-    -- "sprites/elden_bee_hd.png",
+    -- "sprites/bees/elden_bee_item.png", "sprites/bees/elden_bee_shiny.png", 
+    -- "sprites/bees/elden_bee_hd.png",
     -- {r=229, g=221, b=0},
-    -- "sprites/elden_bee_mag.png",
+    -- "sprites/bees/elden_bee_mag.png",
     -- "The Elden bee's population numbers are no longer tarnished thanks to the graceful apiarist, " .. api_get_property(api_get_player_instance(), "name") .. "!",
     -- "'I bet they summoned help.' - Beenjamin."
   -- )
   
   -- Turns out if you try to define a custom trait for bee species you haven't defined yet, they break!
   api_define_trait("magic", {
-    twilight = {"spoken"},
-    sacred = {"roar"},
-    lightning = {"tempest"},
-    hallowed = {"shout"},
-    glitched = {"anechoic", "silent", "whisper", "murmur", "spoken", "shout", "roar", "tempest"},
-    fair = {"whisper"},
-    enchanted = {"whisper"},
-    shadow = {"murmur"},
-    runic = {"murmur", "spoken"}
-  }, {"silent"}) -- default for all the other bees
-  -- Silent, Whisper, Murmur, Spoken, Shout, Roar, Tempest... Anechoic
+    twilight = {"Spoken"},
+    sacred = {"Roaring"},
+    lightning = {"Tempest"},
+    hallowed = {"Shouting"},
+    glitched = {"Anechoic", "Silent", "Whispered", "Murmured", "Spoken", "Shouting", "Roaring", "Tempest"},
+    fair = {"Whispered"},
+    enchanted = {"Whispered"},
+    shadow = {"Murmured"},
+    runic = {"Murmured", "Spoken"}
+  }, {"Silent"}) -- default for all the other bees
+  -- Silent, Whispered, Murmured, Spoken, Shouting, Roaring, Tempest... Anechoic
 end
 
 function runic_bee_recipe(bee_a, bee_b, beehive)
