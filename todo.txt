@@ -16,8 +16,8 @@
     - Apiary must be painted blue?
   - Wintry Bee? Fair + Frosty. Must be during a blizzard.
 - Arcanascope
-  - Microscope + magical stuffs
-  - Identify bee traits + bee magic traits
+  - Add Anechoic render
+  - Figure out weather tooltips
 - Arcane Apiary
   - Keeps the Heart from consuming the Spire
   - Produces Magic based on a bee's magic stat, instead of producing honeycombs/produce (Cuz wow, not coding that!)
