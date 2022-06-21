@@ -1,4 +1,4 @@
-ritual_recipes = {
+RITUAL_RECIPES = {
   {
     core = "bee:uncommon",
     reagents = {"flower3", "stickypearl", "honeydew"},
@@ -33,7 +33,7 @@ ritual_recipes = {
 
 --Adds a new ritual recipe to the list. Table has "core" for the item in the center, "reagents" for a list of up to six ingredients in the other six slots, and "result" for the crafting result. Use "bee:species" to use bees in the recipes. Core item must be unique.
 function add_ritual(ritual_recipe)
-  table.insert(ritual_recipes, ritual_recipe)
+  table.insert(RITUAL_RECIPES, ritual_recipe)
 end
 
 function define_rituals()
@@ -124,18 +124,18 @@ function check_ritual(slots)
   if slots[1]["item"] == "" then
     return {result = "", amount = -1}
   end
-  for i = 1,#ritual_recipes do
-    if item_match(ritual_recipes[i]["core"], slots[1]) then
+  for i = 1,#RITUAL_RECIPES do
+    if item_match(RITUAL_RECIPES[i]["core"], slots[1]) then
       local output = slots[1]["count"]
       --Why do non-stacking items return 0???? >_<
       if output == 0 then
         output = 1
       end
       local usedSlot = {}
-      for j = 1,#ritual_recipes[i]["reagents"] do
+      for j = 1,#RITUAL_RECIPES[i]["reagents"] do
         local valid = false
         for k = 2,7 do
-          if not contains(usedSlot, k) and slots[k]["item"] ~= "" and item_match(ritual_recipes[i]["reagents"][j], slots[k]) then
+          if not contains(usedSlot, k) and slots[k]["item"] ~= "" and item_match(RITUAL_RECIPES[i]["reagents"][j], slots[k]) then
             if slots[k]["count"] > 0 and slots[k]["count"] < output then
               output = slots[k]["count"]
             end
@@ -145,15 +145,15 @@ function check_ritual(slots)
           end
         end
         if not valid then
-          if ritual_recipes[i]["core"] == "mead" then
+          if RITUAL_RECIPES[i]["core"] == "mead" then
             output = 0
           else
-            return {result = ritual_recipes[i]["result"], amount = 0}
+            return {result = RITUAL_RECIPES[i]["result"], amount = 0}
           end
         end
       end
       if output > 0 then
-        return {result = ritual_recipes[i]["result"], amount = output, used = usedSlot}
+        return {result = RITUAL_RECIPES[i]["result"], amount = output, used = usedSlot}
       end
     -- else
       -- api_log("ritual", "Core not a match")

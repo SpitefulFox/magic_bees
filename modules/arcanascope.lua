@@ -1,3 +1,65 @@
+STATS_TABLE = {
+  lifespan = {
+    Hyper = 1,
+    Rapid = 2,
+    Short = 3,
+    Normal = 4,
+    Long = 5,
+    Ancient = 6,
+    Eternal = 7
+  },
+  productivity = {
+    Sluggish = 1,
+    Slowest = 2,
+    Slow = 3,
+    Normal = 4,
+    Fast = 5,
+    Fastest = 6,
+    Brisk = 7
+  },
+  fertility = {
+    Sterile = 1,
+    Infertile = 2,
+    Unlucky = 3,
+    Fertile = 4,
+    Fecund = 5,
+    Prolific = 6,
+    Swarming = 7
+  },
+  stability = {
+    Chaotic = 1,
+    Erratic = 2,
+    Unstable = 3,
+    Normal = 4,
+    Stable = 5,
+    Ordered = 6,
+    Pure = 7
+  },
+   magic = {
+        Anechoic = -1,
+    Silent = 1,
+  Whispered = 2,
+        Murmured = 3,
+      Spoken = 4,
+ Shouting = 5,
+         Roaring = 6,
+   Tempest = 7
+  }
+}
+
+STAT_DRAWS = {
+  14,
+  21,
+  28,
+  35,
+  42,
+  49,
+  56
+}
+
+STAT_NUMBERS = nil
+
+SCOPE_SYMBOLS = nil
 
 function define_arcanascope()
   api_define_menu_object({
@@ -281,69 +343,6 @@ function arcanascope_behavior_tooltip(menu_id)
     }
   end
 end
-
-STATS_TABLE = {
-  lifespan = {
-    Hyper = 1,
-    Rapid = 2,
-    Short = 3,
-    Normal = 4,
-    Long = 5,
-    Ancient = 6,
-    Eternal = 7
-  },
-  productivity = {
-    Sluggish = 1,
-    Slowest = 2,
-    Slow = 3,
-    Normal = 4,
-    Fast = 5,
-    Fastest = 6,
-    Brisk = 7
-  },
-  fertility = {
-    Sterile = 1,
-    Infertile = 2,
-    Unlucky = 3,
-    Fertile = 4,
-    Fecund = 5,
-    Prolific = 6,
-    Swarming = 7
-  },
-  stability = {
-    Chaotic = 1,
-    Erratic = 2,
-    Unstable = 3,
-    Normal = 4,
-    Stable = 5,
-    Ordered = 6,
-    Pure = 7
-  },
-   magic = {
-        Anechoic = -1,
-    Silent = 1,
-  Whispered = 2,
-        Murmured = 3,
-      Spoken = 4,
- Shouting = 5,
-         Roaring = 6,
-   Tempest = 7
-  }
-}
-
-STAT_DRAWS = {
-  14,
-  21,
-  28,
-  35,
-  42,
-  49,
-  56
-}
-
-STAT_NUMBERS = nil
-
-SCOPE_SYMBOLS = nil
 
 function translate_stat(stat, stat_type)
   if STATS_TABLE[stat_type][stat] ~= nil then
