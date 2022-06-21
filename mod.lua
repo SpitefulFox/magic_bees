@@ -11,7 +11,7 @@ function register()
   return {
     name = MOD_NAME,
     hooks = {"ready", "init", "click", "clock", "worldgen"},
-    modules = {"define", "bees", "rituals"}
+    modules = {"define", "bees", "rituals", "arcanascope"}
   }
 end
 
@@ -23,6 +23,7 @@ function init()
   define_items()
   define_bees()
   define_rituals()
+  define_arcanascope()
   --define_book()
   define_npc()
   

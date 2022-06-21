@@ -19,11 +19,16 @@ ritual_recipes = {
     reagents = {"magic_bees_shadow_oil"},
     result = "magic_bees_shadow_cola"
   },
-  { 
-    core = "npc3",
-    reagents = {"log", "log", "log", "log", "log", "log" },
-    result = "npc69"  
+  {
+    core = "microscope",
+    reagents = {"magic_bees_rune_shard", "magic_bees_rune_shard", "magic_bees_rune_shard", "magic_bees_rune_shard", "magic_bees_magical_wax", "magic_bees_fairy_dust"},
+    result = "magic_bees_arcanascope"
   }
+  -- { 
+    -- core = "npc3",
+    -- reagents = {"log", "log", "log", "log", "log", "log" },
+    -- result = "npc69"  
+  -- }
 }
 
 --Adds a new ritual recipe to the list. Table has "core" for the item in the center, "reagents" for a list of up to six ingredients in the other six slots, and "result" for the crafting result. Use "bee:species" to use bees in the recipes. Core item must be unique.

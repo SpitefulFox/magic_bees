@@ -105,38 +105,6 @@ function define_items()
   --}
   --res = api_define_recipe("tools", MOD_NAME .. "_cool_axe", recipe, 1)
   
-  api_define_menu_object({
-    id = "arcanascope",
-    name = "Arcanascope",
-    category = "Beekeeping",
-    tooltip = "Used to identify magical bee traits",
-    layout = {
-      {7, 17, "Input", {"bee"}},
-      {7, 116},
-      {30, 116},
-      {53, 116},
-      {76, 116},
-      {99, 116},
-      {122, 116},
-      {145, 116},
-      {7, 139},
-      {30, 139},
-      {53, 139},
-      {76, 139},
-      {99, 139},
-      {122, 139},
-      {145, 139}
-    },
-    buttons = {"Help", "Target", "Move", "Close"},
-    info = {
-      {"1. Bee Input", "GREEN"},
-      {"2. Extra Storage", "WHITE"}
-    },
-    tools = {"mouse1", "hammer1"},
-    placeable = true,
-    shop_buy = 200,
-    shop_sell = 140,
-  }, "sprites/arcanascope_item.png", "sprites/arcanascope_menu.png", {})
 end
 
 function define_npc()
