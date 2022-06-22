@@ -337,10 +337,28 @@ end
 function arcanascope_behavior_tooltip(menu_id)
   if api_get_property(menu_id, "has_bee") then
     local bee = api_get_slot(menu_id, 1)
-    return {
-      {"Behaviour: " .. bee["stats"]["d_traits"]["behaviour"] .. "/" .. bee["stats"]["r_traits"]["behaviour"], "FONT_WHITE"},
-      {"Climate: " .. bee["stats"]["d_traits"]["climate"] .. "/" .. bee["stats"]["r_traits"]["climate"], "FONT_WHITE"}
+    local tooltip = {
+      {"Behaviour: " .. bee["stats"]["d_traits"]["behaviour"] .. "/" .. bee["stats"]["r_traits"]["behaviour"], "FONT_BGREY"},
+      {"Climate: " .. bee["stats"]["d_traits"]["climate"] .. "/" .. bee["stats"]["r_traits"]["climate"], "FONT_BGREY"}
     }
+    
+    if bee["stats"]["d_traits"]["pluviophile"] == 1 then
+      table.insert(tooltip,
+      {"Rain-lover", "FONT_BLUE"})
+    elseif bee["stats"]["r_traits"]["pluviophile"] == 1 then
+      table.insert(tooltip,
+      {"Rain-lover (Recessive)", "FONT_BLUE"})
+    end
+    
+    if bee["stats"]["d_traits"]["chionophile"] == 1 then
+      table.insert(tooltip,
+      {"Snow-lover", "FONT_WHITE"})
+    elseif bee["stats"]["r_traits"]["chionophile"] == 1 then
+      table.insert(tooltip,
+      {"Snow-lover (Recessive)", "FONT_WHITE"})
+    end
+    
+    return tooltip
   end
 end
 
