@@ -61,6 +61,9 @@ STAT_NUMBERS = nil
 
 SCOPE_SYMBOLS = nil
 
+ANECHOIC = nil
+ANECHOICR = nil
+
 function define_arcanascope()
   api_define_menu_object({
     id = "arcanascope",
@@ -102,6 +105,8 @@ function define_arcanascope()
   
   STAT_NUMBERS = api_define_sprite("magic_bees_numbers", "sprites/arcanascope_gui_numbers.png", 8)
   SCOPE_SYMBOLS = api_define_sprite("magic_bees_arcanascope_symbols", "sprites/arcanascope_gui_symbols.png", 9)
+  ANECHOIC = api_define_sprite("magic_bees_anechoic", "sprites/arcanascope_gui_antimagic.png", 1)
+  ANECHOICR = api_define_sprite("magic_bees_anechoicr", "sprites/arcanascope_gui_antimagicr.png", 1)
 end
 
 function arcanascope_define(menu_id)
@@ -157,7 +162,7 @@ function arcanascope_draw(menu_id)
     draw_stat(menu_id, "prod", statx, staty + 17, "FONT_YELLOW")
     draw_stat(menu_id, "fert", statx, staty + 29, "FONT_RED")
     draw_stat(menu_id, "stab", statx, staty + 41, "FONT_BLUE")
-    draw_stat(menu_id, "mag", statx, staty + 53, "BEE_TWILIGHT")
+    draw_magic(menu_id, statx, staty + 53, "BEE_TWILIGHT")
     
     api_draw_sprite(api_get_property(menu_id, "bee_hd"), 0, ui["x"] - cam["x"] + 105, ui["y"] - cam["y"] + 30)
     api_draw_text(ui["x"] - cam["x"] + 99, ui["y"] - cam["y"] + 17, api_get_property(menu_id, "specd"), false, api_get_property(menu_id, "colord"))
@@ -215,6 +220,27 @@ function draw_stat(menu_id, trait, x, y, color)
     api_draw_rectangle(x + statxr, y + 2, x + statxr + 4, y + 2, color)
     api_draw_rectangle(x + statxr, y + 4, x + statxr + 4, y + 4, color)
     api_draw_rectangle(x + statxr, y + 6, x + statxr + 4, y + 6, color)
+  end
+end
+
+function draw_magic(menu_id, x, y, color)
+  local stat = api_get_property(menu_id, "mag")
+  if stat > 0 then
+    local statx = STAT_DRAWS[stat]
+    api_draw_rectangle(x + statx, y, x + statx + 4, y + 6, color)
+    api_draw_sprite(STAT_NUMBERS, stat, x + statx, y)
+  else
+    api_draw_sprite(ANECHOIC, 0, x + 3, y - 2)
+  end
+  local statr = api_get_property(menu_id, "magr")
+  if statr > 0 then
+    local statxr = STAT_DRAWS[statr]
+    api_draw_rectangle(x + statxr, y, x + statxr + 4, y, color)
+    api_draw_rectangle(x + statxr, y + 2, x + statxr + 4, y + 2, color)
+    api_draw_rectangle(x + statxr, y + 4, x + statxr + 4, y + 4, color)
+    api_draw_rectangle(x + statxr, y + 6, x + statxr + 4, y + 6, color)
+  elseif statr == -1 then
+    api_draw_sprite(ANECHOICR, 0, x + 3, y - 2)
   end
 end
 

@@ -70,6 +70,16 @@ function define_items()
     shop_sell = 2
   }, "sprites/rune_shard.png")
   
+  api_define_item({
+    id = "void_wax",
+    name = "Void Wax",
+    category = "Beekeeping",
+    tooltip = "Produced by Void bees, can be sold for Rubees!",
+    bee_lore = "A dark, shadowy wax that seems to absorb light around it. Rumored to insulate things against magic.",
+    shop_buy = 15,
+    shop_sell = 2.5
+  }, "sprites/void_wax.png")
+  
   --Did you know the game freaks out if your item has "mead" in the name?
   api_define_item({
     id = "fairy_cola",

@@ -1,6 +1,6 @@
 function define_bees()
   -- setup bee_definition 
-  fair_bee = {
+  local fair_bee = {
     id = "fair",
     title = "Fair",
     latin = "Apis Formosus",
@@ -33,7 +33,7 @@ function define_bees()
     "Archipelago residents have taken to leaving bowls of sugar water on their doorsteps as offerings."
   )
   
-  enchanted_bee = {
+  local enchanted_bee = {
     id = "enchanted",
     title = "Enchanted",
     latin = "Apis Incantatus",
@@ -66,7 +66,7 @@ function define_bees()
     "'I don't know who keeps refilling my apicola keg, but I'm not going to argue.' said one local sea captain."
   )
   
-  shadow_bee = {
+  local shadow_bee = {
     id = "shadow",
     title = "Shadow",
     latin = "Apis Umbra",
@@ -99,7 +99,7 @@ function define_bees()
     "Residents have reported being afraid to go out after dark."
   )
   
-  runic_bee = {
+  local runic_bee = {
     id = "runic",
     title = "Runic",
     latin = "Apis Signum",
@@ -132,6 +132,41 @@ function define_bees()
   )
   
   api_define_bee_recipe("enchanted", "rocky", "runic", "runic_bee_recipe")
+  
+  local void_bee = {
+    id = "void",
+    title = "Void",
+    latin = "Apis Nihilus",
+    hint = "Apis Umbra and Apis Incantatus would need their magical ability bred out of them to rediscover this bee.",
+    desc = "The Void Bee tends to its hive in absolute silence. Areas inhabited by Void bees almost seem calmer, as if nothing wants to disturb the bees.",
+    lifespan = { "Long" },
+    productivity = { "Normal" },
+    fertility = { "Sterile" },
+    stability = {"Ordered", "Pure"},
+    behaviour = {"Nocturnal"},
+    climate = {"Polar"},
+    rainlover = false,
+    snowlover = false,
+    grumpy = true,
+    produce = "magic_bees_void_wax",
+    recipes = {},
+    calming = {"flower7", "flower12"},
+    chance = 16,
+    bid = "mV",
+    requirement = "When queen has a magic trait of 1",
+    tier = 4
+  }
+  
+  api_define_bee(void_bee, 
+    "sprites/bees/void_bee_item.png", "sprites/bees/void_bee_shiny.png", 
+    "sprites/bees/void_bee_hd.png",
+    {r=2, g=0, b=1},
+    "sprites/bees/void_bee_mag.png",
+    "Soft-spoken apiarist " .. api_get_property(api_get_player_instance(), "name") .. " has brought the Void Bee back from nothingness!",
+    "'They're kind of nice, to be honest.' - Beenjamin BhD"
+  )
+  
+  api_define_bee_recipe("enchanted", "shadow", "void", "void_bee_recipe")
   
   -- elden_bee = {
     -- id = "elden",
@@ -175,7 +210,8 @@ function define_bees()
     fair = {"Whispered"},
     enchanted = {"Whispered"},
     shadow = {"Murmured"},
-    runic = {"Murmured", "Spoken"}
+    runic = {"Murmured", "Spoken"},
+    void = {"Anechoic"}
   }, {"Silent"}) -- default for all the other bees
   -- Silent, Whispered, Murmured, Spoken, Shouting, Roaring, Tempest... Anechoic
 end
@@ -202,6 +238,21 @@ function runic_bee_recipe(bee_a, bee_b, beehive)
           return get_stable_chance(24, bhive["menu_id"])
         end
       end
+    end
+  end
+  return false
+end
+
+function void_bee_recipe(bee_a, bee_b, beehive)
+  if (bee_a == "enchanted" and bee_b == "shadow") or (bee_a == "shadow" and bee_b == "enchanted") then
+    --api_log("mutation", "Correct combination of bees")
+    local bhive = api_get_inst(beehive)
+    -- if bhive then
+      -- api_log("mutation", "Successfully grabbed hive at " .. bhive["x"] .. ", " .. bhive["y"])
+    -- end
+    local queen = api_get_slot(bhive["menu_id"], 1)
+    if(queen["stats"]["d_traits"]["magic_bees_magic"] == "Silent" or queen["stats"]["d_traits"]["magic_bees_magic"] == "Anechoic") then
+      return get_stable_chance(16, bhive["menu_id"])
     end
   end
   return false
@@ -241,16 +292,3 @@ function stability_modifier(stability)
   end
   return 0
 end
-
--- define the mutation critera/chance for our new bee
---function mutation_chance()
-  -- rocky-dream 30% chance at night to mutate
-  --if (bee_a == "rocky" and bee_b == "dream") or (bee_a == "dream" and bee_b == "rocky") then
-    --time = api_get_time()
-    --chance = api_random(99) + 1
-    --if time["name"] == "Night" and chance <= 30 then
-      --return true
-    --end
-  --end
-  --return false;
---end
