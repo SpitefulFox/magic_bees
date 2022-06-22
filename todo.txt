@@ -1,35 +1,47 @@
 - Bees?
   - Philosopher Bee, which the mainlanders can easily tell apart from the Sorcerous Bee. Produces Cinnabar.
     - Entire line of alchemical bees?
-  - Void Bee. oooooooooooOOOOOOOOOOOoooooooOOOOOOOoooooooooo
-    - Shadow Bee + Something.  Needs Silent or lower magic.
+  - Void Bee
+    - Fix up sprite. Add outlines?
   - Wizardly Bee.
   - Solar Bee. Glowing + something.
     - Bred at high noon. * pew pew pew *
-  - Stellar Bee
-  - Ecclesiastic Bee?
+  - Radiant Bee?
+  - Stellar Bee?
   - The five elemental bees: Inferno Bee, Aqueous Bee, Terra Bee, Aero Bee, Umami Bee
   - Bring back the Elden Bee?
     - Island Between the swamp and the tundra with a giant tree that you must light on fire with a bee, summoning
 	  the Elden Bee'st that must be bonked with a hammer in glorious combat.
   - Temporal Bees, must be bred while under the effects of time control apicola.
     - Apiary must be painted blue?
-  - Wintry Bee? Fair + Frosty. Must be during a blizzard.
-- Arcanascope
-  - Add Anechoic render
-  - Figure out weather tooltips
+  - Wintry Bee? Fair + Frosty. Must be during snow.
 - Arcane Apiary
   - Keeps the Heart from consuming the Spire
-  - Produces Magic based on a bee's magic stat, instead of producing honeycombs/produce (Cuz wow, not coding that!)
+  - Produces liquid Quintessence based on a bee's magic stat, instead of producing honeycombs/produce (Cuz wow, not coding that!)
   - Maybe higher Stability boosts magic production?
   - Maybe lower Productivity boosts magic production?
-  - Magic is used for ... ? Profit!
-    - Ritual recipes?
+  - Quintessence is used for ... ? Profit!
+    - Certain rituals require quintessence stored in a nearby containery thing...
+	  - Pylon?
+	  - Vat?
+	  - Ampoule?
+	  - Amphora?
+	  - Vessel?
+	  - Convenience store big gulp?
 - NPC?
   - Buzzriel
     - Needs more stuff to sell!
   - Swamp ghost that shows up at night during rain?
   - Yuki-onna?
+  - Witch?
+- Alembic
+  - Sold by Buzzriel?
+  - Infuse things with liquids.
+  - Melt things into liquids?
+    - Sticky pearl to make resin
+	- Morningdew to make water
+  - Alchemize some apicola instead of enchanting
+    - Potion effects aren't supported right now, right?  Riiiiiight?
 - Rituals
   - Optimize the draw method by saving item sprites.
   - Ritual to extract bee trait onto a scroll
@@ -37,13 +49,10 @@
   - Ritual to imprint trait scroll onto a bee
     - Takes a lot of stored magic. The more extreme the trait, the more magic.
   - Terraforming rituals for changing biomes
-  - Ritual to fill canister with resin?
   - Ritual to change time of day
   - Ritual to drain the lifespan of nearby apiaries???
   - Ritual to summon an npc
     - Whomst????
-  - Enchanted Apicola!!!!!!
-    - Potion effects aren't supported right now, right?  Riiiiiight?
   - Enchanted Fermenter!
     - Temporal bee products and a barrel to enchant
 	- Ferments faster!!!!
