@@ -3,6 +3,7 @@
     - Entire line of alchemical bees?
   - Void Bee
     - Fix up sprite. Add outlines?
+	- Toss it into the void and come up with a new design?
   - Wizardly Bee.
   - Solar Bee. Glowing + something.
     - Bred at high noon. * pew pew pew *
@@ -20,6 +21,7 @@
   - Produces liquid Quintessence based on a bee's magic stat, instead of producing honeycombs/produce (Cuz wow, not coding that!)
   - Maybe higher Stability boosts magic production?
   - Maybe lower Productivity boosts magic production?
+  - Frame slots for making special versions of bee products???
   - Quintessence is used for ... ? Profit!
     - Certain rituals require quintessence stored in a nearby containery thing...
 	  - Pylon?
