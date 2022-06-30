@@ -16,6 +16,7 @@
   - Temporal Bees, must be bred while under the effects of time control apicola.
     - Apiary must be painted blue?
   - Wintry Bee? Fair + Frosty. Must be during snow.
+    - Four seasonal courts?  Summer Bee, Autumn Bee, Spring Bee?
 - Arcane Apiary
   - Keeps the Heart from consuming the Spire
   - Produces liquid Quintessence based on a bee's magic stat, instead of producing honeycombs/produce (Cuz wow, not coding that!)
