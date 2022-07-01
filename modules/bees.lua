@@ -138,7 +138,7 @@ function define_bees()
     title = "Void",
     latin = "Apis Nihilus",
     hint = "Apis Umbra and Apis Incantatus would need their magical ability bred out of them to rediscover this bee.",
-    desc = "The Void Bee tends to its hive in absolute silence. Areas inhabited by Void bees almost seem calmer, as if nothing wants to disturb the bees.",
+    desc = "The Void Bee tends to its hive in absolute silence. Areas inhabited by Void bees almost seem calmer, as if nothing wants to disturb them.",
     lifespan = { "Long" },
     productivity = { "Normal" },
     fertility = { "Infertile" },
