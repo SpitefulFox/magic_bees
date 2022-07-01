@@ -1,9 +1,7 @@
 - Bees?
   - Philosopher Bee, which the mainlanders can easily tell apart from the Sorcerous Bee. Produces Cinnabar.
     - Entire line of alchemical bees?
-  - Void Bee
-    - Fix up sprite. Add outlines?
-	- Toss it into the void and come up with a new design?
+  - Redo Void Bee art again?
   - Wizardly Bee.
   - Solar Bee. Glowing + something.
     - Bred at high noon. * pew pew pew *
@@ -15,8 +13,7 @@
 	  the Elden Bee'st that must be bonked with a hammer in glorious combat.
   - Temporal Bees, must be bred while under the effects of time control apicola.
     - Apiary must be painted blue?
-  - Wintry Bee? Fair + Frosty. Must be during snow.
-    - Four seasonal courts?  Summer Bee, Autumn Bee, Spring Bee?
+  - Four seasonal courts?  Summer Bee, Autumn Bee, Spring Bee?
 - Arcane Apiary
   - Keeps the Heart from consuming the Spire
   - Produces liquid Quintessence based on a bee's magic stat, instead of producing honeycombs/produce (Cuz wow, not coding that!)
@@ -68,6 +65,4 @@
   - Candles!
   - Sigil Carpet
     - Oops! No floors! Thanks, Gamemaker
-  - Crystal Ball?
-    - Mushy already adds one!!!!
   - Raven familiar!
