@@ -167,6 +167,40 @@ function define_bees()
   
   api_define_bee_recipe("enchanted", "shadow", "void", "void_bee_recipe")
   
+  local wintry_bee = {
+    id = "wintry",
+    title = "Wintry",
+    latin = "Apis Hibernus",
+    hint = "A rare hybrid of Formosus and Frigidus said to appear on snowy nights.",
+    desc = "The Wintry Bee holds court in glittering, frozen hives and is known for its spicy honey reminiscent of mulled apicola.",
+    lifespan = { "Long" },
+    productivity = { "Normal" },
+    fertility = { "Unlucky", "Fertile" },
+    stability = {"Stable", "Ordered"},
+    behaviour = {"Nocturnal"},
+    climate = {"Polar"},
+    rainlover = false,
+    snowlover = true,
+    grumpy = false,
+    produce = "magic_bees_winter_spice",
+    recipes = {},
+    chance = 20,
+    bid = "mW",
+    requirement = "At night during snowfall",
+    tier = 4
+  }
+  
+  api_define_bee(wintry_bee, 
+    "sprites/bees/wintry_bee_item.png", "sprites/bees/wintry_bee_shiny.png", 
+    "sprites/bees/wintry_bee_hd.png",
+    {r=154, g=221, b=249},
+    "sprites/bees/wintry_bee_mag.png",
+    "Warm-hearted " .. api_get_property(api_get_player_instance(), "name") .. " has reintroduced the Wintry Bee to the wild!",
+    "Local appreciator of Apicola, Skipper, was last seen preparing for a trip to the tundra."
+  )
+  
+  api_define_bee_recipe("fair", "frosty", "wintry", "wintry_bee_recipe")
+  
   -- elden_bee = {
     -- id = "elden",
     -- title = "Elden",
@@ -210,7 +244,8 @@ function define_bees()
     enchanted = {"Whispered"},
     shadow = {"Murmured"},
     runic = {"Murmured", "Spoken"},
-    void = {"Anechoic"}
+    void = {"Anechoic"},
+    wintry = {"Spoken", "Shouting"}
   }, {"Silent"}) -- default for all the other bees
   -- Silent, Whispered, Murmured, Spoken, Shouting, Roaring, Tempest... Anechoic
 end
@@ -252,6 +287,18 @@ function void_bee_recipe(bee_a, bee_b, beehive)
     local queen = api_get_slot(bhive["menu_id"], 1)
     if(queen["stats"]["d_traits"]["magic_bees_magic"] == "Silent" or queen["stats"]["d_traits"]["magic_bees_magic"] == "Anechoic") then
       return get_stable_chance(16, bhive["menu_id"])
+    end
+  end
+  return false
+end
+
+function wintry_bee_recipe(bee_a, bee_b, beehive)
+  if (bee_a == "fair" and bee_b == "frosty") or (bee_a == "frosty" and bee_b == "fair") then
+    local bhive = api_get_inst(beehive)
+    if api_get_ground(bhive["x"], bhive["y"]) == "grass3" then
+      if api_get_weather()["active"] and api_get_time()["name"] == "Night" then
+        return get_stable_chance(20, bhive["menu_id"])
+      end
     end
   end
   return false

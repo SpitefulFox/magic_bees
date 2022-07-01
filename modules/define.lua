@@ -80,6 +80,16 @@ function define_items()
     shop_sell = 2.5
   }, "sprites/void_wax.png")
   
+  api_define_item({
+    id = "winter_spice",
+    name = "Celebris",
+    category = "Beekeeping",
+    tooltip = "Produced by Wintry bees, can be sold for Rubees!",
+    bee_lore = "A collection of tree bark, dried berries, and fruit rinds that adds a spicy flavor and good cheer to drinks.",
+    shop_buy = 15,
+    shop_sell = 2.5
+  }, "sprites/winter_spice.png")
+  
   --Did you know the game freaks out if your item has "mead" in the name?
   api_define_item({
     id = "fairy_cola",
