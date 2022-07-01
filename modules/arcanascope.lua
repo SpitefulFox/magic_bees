@@ -384,6 +384,14 @@ function arcanascope_behavior_tooltip(menu_id)
       {"Snow-lover (Recessive)", "FONT_WHITE"})
     end
     
+    if bee["stats"]["d_traits"]["aggressive"] == 1 then
+      table.insert(tooltip,
+      {"Grumpy", "FONT_RED"})
+    elseif bee["stats"]["r_traits"]["aggressive"] == 1 then
+      table.insert(tooltip,
+      {"Grumpy (Recessive)", "FONT_RED"})
+    end
+    
     return tooltip
   end
 end
