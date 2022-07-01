@@ -127,7 +127,7 @@ function define_npc()
     tooltip = "BEEHOLD!",
     shop = true,
     walking = true,
-    stock = {"magic_bees_magic_circle", "wall701", "magic_bees_fairy_dust", "magic_bees_toadstool", "magic_bees_magical_wax", "log", "log", "log", "log", "log"}, -- max 10
+    stock = {"magic_bees_magic_circle", "magic_bees_arcanascope", "wall701", "magic_bees_fairy_dust", "magic_bees_toadstool", "magic_bees_magical_wax", "log", "log", "log", "log"}, -- max 10
     specials = {"magic_bees_fairy_dust", "unstabledust", "spice4"}, -- must be 3
     dialogue = {
       "Hark, beekeeper! I wish ye good fortune in your noble quest!"
