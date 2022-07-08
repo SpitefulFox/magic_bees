@@ -14,20 +14,14 @@
   - Temporal Bees, must be bred while under the effects of time control apicola.
     - Apiary must be painted blue?
   - Four seasonal courts?  Summer Bee, Autumn Bee, Spring Bee?
-- Arcane Apiary
-  - Keeps the Heart from consuming the Spire
-  - Produces liquid Quintessence based on a bee's magic stat, instead of producing honeycombs/produce (Cuz wow, not coding that!)
-  - Maybe higher Stability boosts magic production?
-  - Maybe lower Productivity boosts magic production?
-  - Frame slots for making special versions of bee products???
-  - Quintessence is used for ... ? Profit!
-    - Certain rituals require quintessence stored in a nearby containery thing...
-	  - Pylon?
-	  - Vat?
-	  - Ampoule?
-	  - Amphora?
-	  - Vessel?
-	  - Convenience store big gulp?
+- Quintessence vessel
+  - Produces Quintessence based on magic stat of nearby apiaries
+  - Needs a naaame
+    - Pylon?
+	- Vessel?
+	- Reservoir?
+	- Repository?
+	- Node! Ha. Ha. Ha.
 - NPC?
   - Buzzriel
     - Needs more stuff to sell!
