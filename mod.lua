@@ -141,6 +141,10 @@ function click(button, click_type)
           --api_create_effect(highlighted_obj["x"] + 16, highlighted_obj["y"], "GATE_GROWTH", 1, BEE_CHAOTIC)
         end
       end
+      if highlighted_obj["oid"] == "hive1" then
+        local slots = api_get_slots(highlighted_obj["menu_id"])
+        api_log("apiary", slots)
+      end
     end
   end
 end
