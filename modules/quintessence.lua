@@ -35,7 +35,8 @@ function define_quintessence()
   {
     define = "essence_node_define",
     draw = "essence_node_draw",
-    change = "essence_node_change"
+    change = "essence_node_change",
+    tick = "essence_node_tick"
   })
   
 end
@@ -44,9 +45,14 @@ function essence_node_define(menu_id)
   
   api_define_tank(menu_id, 0, 2000, "Quintessence", 7, 14, "medium")
   
+  api_dp(menu_id, "p_start", 0)
+  api_dp(menu_id, "p_end", 120)
+  api_dp(menu_id, "amount", 5)
+  
   -- save the special tank props to our menu._fields so the values are saved/loaded
-  fields = {"tank_amount", "tank_max", "tank_type"}
+  local fields = {"tank_amount", "tank_max", "tank_type"}
   fields = api_sp(menu_id, "_fields", fields)
+  
   
 end
 
@@ -68,6 +74,10 @@ function essence_node_change(menu_id)
   if slot["item"] ~= ""  then
     api_slot_fill(menu_id, 1)
   end
+end
+
+function essence_node_tick(menu_id)
+  local tick = api_get_property(menu_id, "p_start")
 end
 
 function make_magic(args)
