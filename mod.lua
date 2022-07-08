@@ -11,7 +11,7 @@ function register()
   return {
     name = MOD_NAME,
     hooks = {"ready", "init", "click", "clock", "worldgen"},
-    modules = {"define", "bees", "rituals", "arcanascope"}
+    modules = {"define", "bees", "rituals", "arcanascope", "quintessence"}
   }
 end
 
@@ -24,7 +24,7 @@ function init()
   define_bees()
   define_rituals()
   define_arcanascope()
-  --define_book()
+  define_quintessence()
   define_npc()
   
   api_define_workbench("Magic Bees", {
@@ -141,10 +141,10 @@ function click(button, click_type)
           --api_create_effect(highlighted_obj["x"] + 16, highlighted_obj["y"], "GATE_GROWTH", 1, BEE_CHAOTIC)
         end
       end
-      if highlighted_obj["oid"] == "hive1" then
-        local slots = api_get_slots(highlighted_obj["menu_id"])
-        api_log("apiary", slots)
-      end
+      -- if highlighted_obj["oid"] == "hive1" then
+        -- local slots = api_get_slots(highlighted_obj["menu_id"])
+        -- api_log("apiary", slots)
+      -- end
     end
   end
 end

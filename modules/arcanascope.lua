@@ -69,7 +69,7 @@ function define_arcanascope()
     id = "arcanascope",
     name = "Arcanascope",
     category = "Beekeeping",
-    tooltip = "Used to identify magical bee traits",
+    tooltip = "Used to identify magical bee traits|Not scientific enough to discover traits",
     layout = {
       {7, 17, "Input", {"bee"}},
       {7, 116},

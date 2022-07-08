@@ -18,12 +18,12 @@ RITUAL_RECIPES = {
     core = "mead",
     reagents = {"magic_bees_shadow_oil"},
     result = "magic_bees_shadow_cola"
-  },
-  {
-    core = "microscope",
-    reagents = {"magic_bees_rune_shard", "magic_bees_rune_shard", "magic_bees_rune_shard", "magic_bees_rune_shard", "magic_bees_magical_wax", "magic_bees_fairy_dust"},
-    result = "magic_bees_arcanascope"
   }
+  -- {
+    -- core = "microscope",
+    -- reagents = {"magic_bees_rune_shard", "magic_bees_rune_shard", "magic_bees_rune_shard", "magic_bees_rune_shard", "magic_bees_magical_wax", "magic_bees_fairy_dust"},
+    -- result = "magic_bees_arcanascope"
+  -- }
   -- { 
     -- core = "npc3",
     -- reagents = {"log", "log", "log", "log", "log", "log" },
@@ -40,7 +40,7 @@ function define_rituals()
   api_define_menu_object({
     id = "magic_circle",
     name = "Ritual Circle",
-    category = "Rituals",
+    category = "Arcane",
     tooltip = "A kit for doing magical rituals.|Place some items in the circle and then right click to attempt a ritual",
     layout = {
       {62, 39},
@@ -69,6 +69,7 @@ function define_rituals()
     item_sprite = "sprites/ritual_chalk.png",
     shop_buy = 100,
     shop_sell = 70,
+    depth = -16,
   }, "sprites/magic_circle.png", "sprites/ritual_menu.png", {}, "draw_ritual")
 end
 
