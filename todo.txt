@@ -14,15 +14,10 @@
   - Temporal Bees, must be bred while under the effects of time control apicola.
     - Apiary must be painted blue?
   - Four seasonal courts?  Summer Bee, Autumn Bee, Spring Bee?
-- Quintessence vessel
+- Quintessence Node
   - Produces Quintessence based on magic stat of nearby apiaries
-  - Needs a naaame
-    - Pylon?
-	- Vessel?
-	- Reservoir?
-	- Repository?
-	- Node! Ha. Ha. Ha.
-	- Crucible?
+  - Figure out the algorithm for generating quintessence >.<
+    - Light on ticks since it has to search for a nearby apiary D:
 - NPC?
   - Buzzriel
     - Needs more stuff to sell!

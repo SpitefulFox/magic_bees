@@ -30,7 +30,7 @@ function define_quintessence()
     tools = {"mouse1", "hammer1"},
     placeable = true,
     item_sprite = "sprites/essence_node_item.png",
-    depth = 10
+    depth = 13
   }, "sprites/essence_node.png", "sprites/essence_node_menu.png",
   {
     define = "essence_node_define",
